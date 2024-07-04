@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# Generar carga de CPU
-stress --cpu $(nproc) --timeout 30 &
+# Generamos una carga en el CPU haciedno uso del pauqete stress
+stress --cpu $(nproc) --timeout 60 &
 
-# Generar carga de memoria
-stress --vm 1 --vm-bytes 1G --timeout 30 &
+# Generar carga de memoria hacinedo uso del paquete stress
+stress --vm 1 --vm-bytes 1G --timeout 60 &
 
-# Generar carga de disco
-dd if=/dev/zero of=/tmp/testfile bs=1M count=1024 &
+# comando usado para generar una carga en el disco
+dd if=/dev/zero of=/tmp/testfile bs=1M count=1024 oflag=direct &
 
+# Esperar a que todas las tareas en segundo plano terminen
 wait
-echo "Prueba de carga completada"
+echo "Prueba de carga completada"
