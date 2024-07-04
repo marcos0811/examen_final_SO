@@ -1,34 +1,28 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Cargar los datos desde el archivo CSV
-archivo_csv = 'stats.csv'
-df = pd.read_csv(archivo_csv)
 
-# Convertir la columna de tiempo a tipo datetime
+# Leemos los datos desde el archivo CSV corregido
+df = pd.read_csv('stats_prueab2.csv')
+
+
+# Convertimos la columna 'Tiempo' a formato de fecha y hora
 df['Timestamp'] = pd.to_datetime(df['Timestamp'])
 
-# Ordenar por la columna de tiempo si no está ordenado
-df = df.sort_values(by='Timestamp')
 
-# Extraer los datos de interés
-fechas = df['Timestamp']
-uso_cpu = df['CPU Usage (%)']
-uso_ram = df['RAM Usage (%)']
+# Graficar del consumo de memoria
+plt.plot(df['Timestamp'], df['RAM Usage (%)'],
+         color='blue', label='Memoria(%)', marker='o')
 
-# Crear la gráfica
-plt.figure(figsize=(10, 6))
-plt.plot(fechas, uso_cpu, label='CPU Usage (%)', marker='o')
-plt.plot(fechas, uso_ram, label='RAM Usage (%)', marker='o')
+# Graficar cel uso de CPU
+plt.plot(df['Timestamp'], df['CPU Usage (%)'],
+         color='red', label='CPU(%)', marker='o')
 
-# Formatear la gráfica
-plt.title('Uso de CPU y RAM')
-plt.xlabel('Fecha y Hora')
+# Configuracion de la grafica
+plt.xlabel('Tiempo')
 plt.ylabel('Uso (%)')
-plt.xticks(rotation=45)
-plt.grid(True)
+plt.title('Consumo de Memoria y CPU a lo largo del tiempo')
 plt.legend()
-
-# Mostrar la gráfica
+plt.grid(True)
 plt.tight_layout()
 plt.show()
