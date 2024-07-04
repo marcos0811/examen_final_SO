@@ -16,6 +16,6 @@ Si le llego procederemos a ejecutar el codigo monitoreo.sh para empezar con el m
 Para comprobar la efectividad del script anterior podemos ejecutar el codigo sobrecarga.sh el cual contiene
 comandos especificos para la sobrecarga del sistema
 
-Adicional a ello se agrego el codigo usado para poder visualizar de una mejor manera el uso de la CPU y la RAM en el sistema, 
-la grafica muestra como al generar la sobrecarga se pone en acccion el script de monitore matando los procesos que generan la sobrecarga
+Adicional a ello se agrego el codigo usado en python para poder visualizar de una mejor manera el uso de la CPU y la RAM en el sistema, 
+la grafica muestra como al generar la sobrecarga, se pone en acccion el script monitoreo matando los procesos que generan la sobrecarga
 y asi bajando el consumo de estos.
