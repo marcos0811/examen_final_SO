@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Generamos una carga en el CPU haciedno uso del pauqete stress
+# Generamos una carga en el CPU haciendo uso del pauqete stress
 stress --cpu $(nproc) --timeout 60 &
 
 # Generar carga de memoria hacinedo uso del paquete stress
