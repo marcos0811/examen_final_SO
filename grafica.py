@@ -1,9 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 
-# Leemos los datos desde el archivo CSV corregido
-df = pd.read_csv('stats_prueab2.csv')
+usuario = os.getloagin() # accedemos al nombre de usuario del sistema
+df = pd.read_csv(f"/home/{usuario}/Escritorio/stats.csv") # ingresamos la ruta de eodne esta el archivo csv
 
 
 # Convertimos la columna 'Tiempo' a formato de fecha y hora
@@ -21,7 +22,7 @@ plt.plot(df['Timestamp'], df['CPU Usage (%)'],
 # Configuracion de la grafica
 plt.xlabel('Tiempo')
 plt.ylabel('Uso (%)')
-plt.title('Consumo de Memoria y CPU a lo largo del tiempo')
+plt.title('Consumo de la Memoria RAM y CPU a lo largo del tiempo')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
