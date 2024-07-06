@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Obtener el nombre del usuario actual
 USER=$(whoami)
 
@@ -70,7 +68,7 @@ check_memory() {
     mem_usage=$(echo "$mem_usage" | sed 's/,/./g')
     if (( $(echo "$mem_usage > 90" | bc -l) )); then
         send_email "Uso de memoria crítico: ${mem_usage}%"
-        # Intentar liberar memoria sin mostrar salida en pantalla
+        # Intentar liberar memoria
         sudo sync; echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null
     elif (( $(echo "$mem_usage > 80" | bc -l) )); then
         send_email "Uso de memoria alto: ${mem_usage}%"
@@ -83,28 +81,38 @@ check_cpu() {
     cpu_usage=$(echo "$cpu_usage" | sed 's/,/./g')
     if (( $(echo "$cpu_usage > 90" | bc -l) )); then
         send_email "Uso de CPU crítico: ${cpu_usage}%"
-        # Matar procesos con alto uso de CPU sin mostrar salida en pantalla
-        ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6 | awk '{if($5 > 90) print $1}' | xargs sudo kill -9 > /dev/null 2>&1
+        # Matar procesos con alto uso de CPU
+        ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6 | awk '{if($5 > 90) print $1}' | xargs sudo kill -9
     fi
 }
 
 # Función principal de monitoreo
 monitor() {
+    local max_runtime=$((5 * 60))  # tiempo que se estara monitoreando
+    local start_time=$(date +%s)
+    local elapsed_time=0
+
     # Crear archivo CSV y escribir encabezados si no existe
     if [ ! -f "$CSVFILE" ]; then
         create_csv_file
     fi
 
-    while true; do
+    while [ $elapsed_time -lt $max_runtime ]; do
         log_stats
         check_memory
         check_cpu
-
         # Mantener la sesión sudo activa cada 5 minutos
         sudo -v
-        sleep 30  # Reducimos el intervalo de monitoreo a 10 segundos
+        sleep 10 
+
+        # Actualizar tiempo transcurrido
+        current_time=$(date +%s)
+        elapsed_time=$((current_time - start_time))
     done
+
+    echo "Tiempo de ejecución máximo alcanzado. Finalizando el script."
+    send_email "Monitoreo finalizado" "El script de monitoreo ha finalizado su ejecución después de $max_runtime segundos."
 }
 
-# Ejecutar la función de monitoreo en segundo plano
-monitor &
+# Ejecutar la función de monitoreo en segundo plano
+monitor &
