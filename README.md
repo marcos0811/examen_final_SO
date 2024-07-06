@@ -10,13 +10,13 @@ Ejecute el script instalar_paquetes.sh para instalar todos los paquetes necesari
 ```
 2. Configuración de Correos: 
 
-Ejecute configuracion_correos.sh para configurar el correo emisor y la contraseña de aplicación. Si usa Gmail, puede generar una contraseña de aplicación en [Google Account](https://myaccount.google.com/apppasswords).
+Ejecute configuracion_correos.sh para configurar el correo emisor y la contraseña de aplicación sin espacios. Si usa Gmail, puede generar una contraseña de aplicación en [Google Account](https://myaccount.google.com/apppasswords).
 ```
 ./configuracion_correos.sh
 ```
 En caso de querer trabajar con otro correo(hotmail, outlook , etc) debera cambiar el dominio smtp.dominio.com dentro del script
 
-Si el correo ingresado y la contraseña son correctos se le enviara un mesanje de confrimacion, si le llego puede continuar caso contrario revise que los datos ingresados como la contraseña de aplicacion(sin espacios) y el correo sean los correctos.
+Si el correo ingresado y la contraseña son correctos se le enviara un mesanje de confirmacion, si le llego puede continuar caso contrario revise que los datos ingresados como la contraseña de aplicacion y el correo sean los correctos.
 
 3. Inicio del Monitoreo: 
 
