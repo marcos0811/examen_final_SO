@@ -1,6 +1,6 @@
 # examen_final_SO
 
-Pasos para Configurar y Ejecutar el Proyecto:
+# # Pasos para Configurar y Ejecutar el Proyecto:
 
 1. Instalación de Paquetes:
 
