@@ -1,21 +1,39 @@
 # examen_final_SO
-los paquetes a instalar son :
 
--sudo apt-get update
+Pasos para Configurar y Ejecutar el Proyecto:
 
--sudo apt-get install streess
+1. Instalación de Paquetes:
 
-Ejecutar el codigo configuracion_correos.sh y poner el correo emisor del mensaje y la contraseña de aplicacion, puede sacar la contraseña de seguirdad en el siguiente link https://myaccount.google.com/apppasswords en caso de trabajar con gmail.
+Ejecute el script instalar_paquetes.sh para instalar todos los paquetes necesarios para el proyecto.
 
-En caso de querer trabajar con otro correo debera cambiar el dominio smtp.dominio.com
+./instalar_paquetes.sh
 
-Una vez ya instalado el paquete msmtp con el script anterior se le enviara un mensaje de confirmacion al correo
+2. Configuración de Correos:
 
-Si le llego procederemos a ejecutar el codigo monitoreo.sh para empezar con el monitoreo de la mauqina virtual
+Ejecute configuracion_correos.sh para configurar el correo emisor y la contraseña de aplicación. Si usa Gmail, puede generar una contraseña de aplicación en https://myaccount.google.com/apppasswords.
 
-Para comprobar la efectividad del script anterior podemos ejecutar el codigo sobrecarga.sh el cual contiene
-comandos especificos para la sobrecarga del sistema
+./configuracion_correos.sh
 
-Adicional a ello se agrego el codigo usado en python para poder visualizar de una mejor manera el uso de la CPU y la RAM en el sistema, 
-la grafica muestra como al generar la sobrecarga, se pone en acccion el script monitoreo matando los procesos que generan la sobrecarga
-y asi bajando el consumo de estos.
+En caso de querer trabajar con otro correo(hotmail, outlook , etc) debera cambiar el dominio smtp.dominio.com dentro del script
+
+Si el correo ingresado y la contraseña son correctos se le enviara un mesanje de confrimacion, si le llego puede continuar caso contrario revise que los datos ingresados como la contraseña de aplicacion(sin espacios) y el correo sean los correctos.
+
+3. Inicio del Monitoreo:
+
+Una vez configurado el correo, ejecute monitoreo.sh para comenzar el monitoreo de la máquina virtual. Puede ajustar el directorio de almacenamiento de datos; por defecto, se guarda en el escritorio. Si su computadora está en otro idioma, asegúrese de cambiar el nombre del directorio tanto para el archivo '.csv' como para el '.log'.
+
+./monitoreo.sh
+
+El monitoreo se realiza cada 5 segundos durante un período de 1 minuto. Ajuste estos valores según sea necesario modificando el script monitoreo.sh.
+
+4. Prueba de Sobrecarga (Opcional):
+
+Para verificar la efectividad del monitoreo, ejecute sobrecarga.sh, que simula una sobrecarga en la memoria RAM, CPU y disco duro.
+
+./sobrecarga.sh
+
+5. Generación de Gráficas:
+
+Para visualizar el consumo de memoria RAM y CPU en un tiempo definido, ejecute grafica.py. Asegúrese de actualizar la ruta del archivo .csv si ha cambiado su ubicación.
+
+python3 grafica.py
