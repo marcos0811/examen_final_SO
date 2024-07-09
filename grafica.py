@@ -1,9 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import pwd
 
-
-usuario = os.getloagin() # accedemos al nombre de usuario del sistema
+# Obtener el nombre de usuario actual
+usuario = pwd.getpwuid(os.geteuid()).pw_name
 df = pd.read_csv(f"/home/{usuario}/Escritorio/stats.csv") # ingresamos la ruta de eodne esta el archivo csv
 
 
