@@ -1,14 +1,14 @@
 # examen_final_SO
 
 ### Pasos para Configurar y Ejecutar el Proyecto:
-1.  Descargamos todos los archivo en formato zip, nos vamos a la carpeta de descargas y para descomprimirlos hacemos uso del comando:
+1.  Descargamos todos los archivo en formato zip, nos vadirigimos a la carpeta 'Descargas' o 'Download' segun su configuración, para descomprimirlo hacemos uso del comando:
  ```
  unzip examen_final_SO-main.zip
  ```
-Una vez descomprimido procederemos a cambiar los permisos de los archivos .py y .sh, en caso de que queira tener los archivos en otro lugar lo puede hacer haciendo uso de los siguientes comandos respectivamente.
+Una vez descomprimido procederemos a cambiar los permisos de los archivos .py y .sh, en caso de que quiera tener los archivos en otro lugar lo puede hacer haciendo uso de los siguientes comandos respectivamente.
 
 ```
-chmod 700 archivo.sh  
+chmod 700 archivo.sh  o archivo.py
 mv examen_final_SO-main /home/usuario/destino
 ```
 2.  Instalación de Paquetes: 
