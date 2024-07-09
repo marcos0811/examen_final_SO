@@ -21,7 +21,7 @@ Ejecute el script instalar_paquetes.sh para instalar todos los paquetes necesari
 ```
 3. Configuración de Correos: 
 
-Ejecute configuracion_correos.sh para configurar el correo emisor y la contraseña de aplicación sin espacios. Si usa Gmail, puede generar una contraseña de aplicación en [Google Account](https://myaccount.google.com/apppasswords).
+Ejecute configuracion_correos.sh para configurar el correo emisor y la contraseña de aplicación sin espacios. Si usa Gmail, de activar la verificación de 2 pasos en [Verificación en dos pasos](https://myaccount.google.com/two-step-verification/phone-numbers) para asi poder obtener la contraseña de aplicacion, ahora puede generar una contraseña de aplicación en [Google Account](https://myaccount.google.com/apppasswords).
 ```
 ./configuracion_correos.sh
 ```
