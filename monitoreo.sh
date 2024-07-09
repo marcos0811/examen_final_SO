@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Obtener el nombre del usuario actual
 USER=$(whoami)
 
@@ -110,7 +112,7 @@ monitor() {
     done
 
     echo "Tiempo de ejecución máximo alcanzado. Finalizando el script."
-    send_email "Monitoreo finalizado" "El script de monitoreo ha finalizado su ejecución después de $max_runtime segundos."
+    send_email "Monitoreo finalizado"
 }
 
 # Ejecutar la función de monitoreo en segundo plano
