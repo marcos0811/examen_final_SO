@@ -1,7 +1,8 @@
 # examen_final_SO
 
 ### Pasos para Configurar y Ejecutar el Proyecto:
-1.  Descargamos todos los archivo en formato zip, nos vadirigimos a la carpeta 'Descargas' o 'Download' segun su configuración, para descomprimirlo hacemos uso del comando:
+1. Descargamos el archivo zip
+Descargamos todos los codigos necesarios en un formato zip, despues nos dirigimos a la carpeta 'Descargas' o 'Download' segun su configuración, para descomprimirlo hacemos uso del comando:
  ```
  unzip examen_final_SO-main.zip
  ```
