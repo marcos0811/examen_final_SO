@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Verificamos si msmtp está instalado y, si no lo está, instalarlo
-if ! command -v msmtp &> /dev/null
-then
-    echo "Instalando msmtp..."
-    sudo apt-get update
-    sudo apt-get install -y msmtp
-fi
-
 # Solicitamos la dirección de correo electrónico y la contraseña de aplicación, la cual se le debe de scar de gmail
 read -p "Ingresa tu dirección de correo electrónico: " email
 read -s -p "Ingresa tu contraseña de aplicación: " password
