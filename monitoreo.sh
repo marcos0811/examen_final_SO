@@ -19,7 +19,6 @@ fi
 send_email() {
     local message=$1
     echo -e "Subject: $SUBJECT\n\n$message" | msmtp $EMAIL
-    echo "Correo enviado a $EMAIL: $message"
 }
 
 # Crear archivo CSV y escribir encabezados
