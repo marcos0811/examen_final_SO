@@ -5,7 +5,12 @@
  ```
  unzip examen_final_SO-main.zip
  ```
-Una vez descomprimido procederemos a cambiar los permisos de los archivos .py y .sh haciendo uso de $chmod 700 archuvo.sh$, en caso de que queiro tener los archivos en otra carpeta puede hacer uso del comando $mv examen_final_SO-main /home/usuario/destino$
+Una vez descomprimido procederemos a cambiar los permisos de los archivos .py y .sh, en caso de que queira tener los archivos en otro lugar lo puede hacer haciendo uso de los siguientes comandos respectivamente.
+
+```
+chmod 700 archuvo.sh  
+mv examen_final_SO-main /home/usuario/destino
+```
 2.  Instalación de Paquetes: 
 
 Ejecute el script instalar_paquetes.sh para instalar todos los paquetes necesarios para el proyecto.
