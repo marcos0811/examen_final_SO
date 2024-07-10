@@ -81,7 +81,7 @@ check_cpu() {
     cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
     cpu_usage=$(echo "$cpu_usage" | sed 's/,/./g')
     if (( $(echo "$cpu_usage > 90" | bc -l) )); then
-        send_email "Uso de CPU crítico: ${cpu_usage}%"
+        send_email "Uso de CPU critico: ${cpu_usage}%"
         # Matar procesos con alto uso de CPU
         ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6 | awk '{if($5 > 90) print $1}' | xargs sudo kill -9
     fi
